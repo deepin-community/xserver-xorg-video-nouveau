@@ -1,0 +1,37 @@
+Source: xserver-xorg-video-nouveau
+Section: x11
+Priority: optional
+Maintainer: Deepin Developer <deepin-dev@deepin.org>
+Uploaders: Deepin Packages Builder <packages@deepin.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ pkg-config,
+ xserver-xorg-dev (>= 2:21.1),
+ x11proto-dev,
+ libdrm-dev (>= 2.4.60),
+ libudev-dev,
+ xutils-dev,
+ quilt (>= 0.63-8.2~),
+Standards-Version: 4.6.0
+Rules-Requires-Root: no
+Homepage: https://nouveau.freedesktop.org/wiki/
+#Vcs-Git
+#Vcs-Browser
+
+Package: xserver-xorg-video-nouveau
+Architecture: linux-any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${xviddriver:Depends},
+Recommends: libgl1-mesa-dri (>= 9.0)
+Suggests: firmware-misc-nonfree
+Provides: ${xviddriver:Provides}
+Description: X.Org X server -- Nouveau display driver
+ This driver for the X.Org X server (see xserver-xorg for a further description)
+ provides support for NVIDIA Riva, TNT, GeForce, and Quadro cards.
+ .
+ This package provides 2D support including EXA acceleration, Xv and
+ RandR.  3D functionality is provided by the libgl1-mesa-dri package.
+ .
+ This package is built from the FreeDesktop.org xf86-video-nouveau driver.
